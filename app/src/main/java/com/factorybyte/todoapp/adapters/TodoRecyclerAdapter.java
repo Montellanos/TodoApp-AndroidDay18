@@ -1,7 +1,6 @@
 package com.factorybyte.todoapp.adapters;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,7 @@ public class TodoRecyclerAdapter extends FirestoreRecyclerAdapter<Todo, TodoView
     protected void onBindViewHolder(@NonNull TodoViewHolder holder, int position, @NonNull Todo model) {
         holder.setTodoName(model.getName());
         holder.setCompleted(model.isCompleted());
-        holder.setTodoOptions(model.getName());
+        holder.setTodoOptions(model.getDocumentId(), model.getName(), model.isCompleted());
     }
 
     @NonNull

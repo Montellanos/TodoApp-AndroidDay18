@@ -5,4 +5,7 @@
     <string name="cancel_todo">Cancelar</string>
     <string name="save_todo">Guardar</string>
     <string name="dialog_placeholder">Ejem: Comprar Pan</string>
+    <string name="delete">Eliminar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete_todo">Eliminar Tarea?</string>
 </resources>

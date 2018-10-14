@@ -1,6 +1,7 @@
 package com.factorybyte.todoapp;
 
 import android.content.DialogInterface;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,9 @@ import com.factorybyte.todoapp.adapters.TodoRecyclerAdapter;
 import com.factorybyte.todoapp.models.Todo;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.SnapshotParser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -60,7 +63,17 @@ public class MainActivity extends AppCompatActivity {
                 .orderBy("completed", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<Todo> options = new FirestoreRecyclerOptions.Builder<Todo>()
-                .setQuery(query, Todo.class)
+                .setQuery(query, new SnapshotParser<Todo>() {
+                    @NonNull
+                    @Override
+                    public Todo parseSnapshot(@NonNull DocumentSnapshot snapshot) {
+                        Todo todo = snapshot.toObject(Todo.class);
+                        assert todo != null;
+                        todo.setDocumentId(snapshot.getId());
+                        return todo;
+                    }
+                })
+                .setLifecycleOwner(this)
                 .build();
 
         todoAdapter = new TodoRecyclerAdapter(options);
