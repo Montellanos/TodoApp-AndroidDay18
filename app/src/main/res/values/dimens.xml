@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="appbar_dimen">56dp</dimen>
+    <dimen name="todo_item_height">50dp</dimen>
+    <dimen name="progressbar_dimen">50dp</dimen>
+    <dimen name="guideline">20dp</dimen>
+    <dimen name="text_size">16sp</dimen>
+    <dimen name="completed_size">9sp</dimen>
+    <dimen name="guideline_dialog">10dp</dimen>
+</resources>

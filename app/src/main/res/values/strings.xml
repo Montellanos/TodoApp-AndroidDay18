@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">To - Do List</string>
+    <string name="completed_text">COMPLETADA</string>
+    <string name="new_todo">Nueva Tarea</string>
+    <string name="cancel_todo">Cancelar</string>
+    <string name="save_todo">Guardar</string>
+    <string name="dialog_placeholder">Ejem: Comprar Pan</string>
+</resources>
